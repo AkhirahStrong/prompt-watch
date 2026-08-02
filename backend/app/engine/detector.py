@@ -18,7 +18,9 @@ Responsibilities:
 
 Dependencies:
     AnalysisResult
-
+    normalizer.py
+    response.py
+    
 Author:
     Akhirah Strong
 
@@ -26,10 +28,12 @@ Author:
 """
 
 from app.models.response import AnalysisResult
+from app.engine.normalizer import normalized_prompt
 
 
 def analyze_prompt(prompt: str) -> AnalysisResult:
-    
+    normalized_prompt_text = normalized_prompt(prompt)
+
     return AnalysisResult(
         prompt=prompt,
         detected=False,
